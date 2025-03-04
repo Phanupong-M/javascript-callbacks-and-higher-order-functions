@@ -1,20 +1,22 @@
 //Exercise #2: At Least Five Function
 
 function atLeastFive(array ,room, operation) {
-  return operation(array,room)
+   let count = 0;
+   for (let i = 0; i < array.length; i++) {
+     if (operation(array[i])) {
+       count++;
+     }
+   }
+   if (count >= 5){
+      return `นักเรียนห้องที่ ${room} ผ่านเกณฑ์ ✅`
+   }else{
+      return `นักเรียนห้องที่ ${room} ไม่ผ่านเกณฑ์ ❌`
+   }
 }
 
-const checkScore = (score,room) => {
-   let count = 0
-   for (let num of score){
-      if (num>70){count++}
-   }
 
-   if (count >= 5){
-    return `นักเรียนห้องที่ ${room} ผ่านเกณฑ์ ✅`
-   }else{
-    return `นักเรียนห้องที่ ${room} ไม่ผ่านเกณฑ์ ❌`
-   }
+const checkScore = (score) => {
+   return score > 70
 }
 
 const studentScoresRoom1 = [90, 40, 67, 80, 100, 15, 86, 12, 99, 67];
